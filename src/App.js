@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import withStore from './store/withStore'
+
+import SidePanel from './SidePanel'
+import MainPanel from './MainPanel'
+import {css} from 'react-emotion'
+
+const style = css`
+  min-height: 100vh;
+  display: flex;
+`
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    // this.updateDimensions = this.updateDimensions.bind(this)
+  }
+  // componentDidMount() {
+  //   const {store} = this.props
+  //   window.addEventListener("resize", _.debounce(this.updateDimensions,400))
+  // }
+  //
+  // componentWillUnmount() {
+  //   const {store} = this.props
+  //   window.removeEventListener("resize", store.updateDimensions)
+  // }
+  //
+  // updateDimensions() {
+  //   const {store} = this.props
+  //   return store.updateDimensions({width:window.innerWidth, height: window.innerHeight})
+  // }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className={style}>
+        <SidePanel/>
+        <MainPanel />
       </div>
     );
   }
 }
 
-export default App;
+export default App
