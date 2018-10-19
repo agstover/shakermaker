@@ -4,6 +4,7 @@ import withStore from './store/withStore'
 import {observer} from 'mobx-react'
 
 import './css/DesignSVG.css'
+import img from './sig.jpg'
 import styled, {css} from 'react-emotion'
 import SVG from 'svg.js'
 import 'svg.draggable.js'
@@ -37,6 +38,18 @@ const styleSVG = css`
   z-index: 2;
 `
 
+const options = {
+  resize: {
+    saveAspectRatio: true,
+    snapToGrid: .5
+  },
+  select: {
+    points: ['rb']
+  }
+}
+
+
+
 class DesignBase extends Component {
   constructor(props) {
     super(props)
@@ -58,7 +71,10 @@ class DesignBase extends Component {
     draw.attr('id','designZone')
     draw.style(style)
     draw.addClass(styleSVG)
-    draw.rect(100, 100).attr({ fill: '#f06' }).draggable().selectize().resize()
+    const image = draw.image(img).loaded(function(loader) {
+      this.size(loader.width, loader.height)
+    }).draggable().selectize(options.select).resize(options.resize)
+//    draw.rect(100, 100).attr({ fill: '#f06' }).draggable().selectize().resize()
   }
 
   componentDidUpdate(prevProps) {

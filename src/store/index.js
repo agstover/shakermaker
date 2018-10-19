@@ -6,7 +6,7 @@ class Store {
       height: 0,
       width: 0
     }
-    // this.SVGParent = null
+    this.shakerColor = 'fff'
   }
   updateDimensions({height, width}) {
     this.designAreaDimensions = {
@@ -14,19 +14,36 @@ class Store {
       width
     }
   }
-  // setSVGRef(node) {
-  //   console.log("This is node", node);
-  //   console.log("This is this", this);
-  //   this.SVGParent = node
-  // }
+  setShakerColor(color) {
+    this.shakerColor = color
+  }
+  uploadImage(file) {
+    this.isUploadingImg = true
+
+    const formData = new FormData()
+
+    formData.append('file', file)
+
+    // fetch(`${API_URL}/image-upload`, {
+    //   method: 'POST',
+    //   body: formData
+    // })
+    // .then(res => res.json())
+    // .then(images => {
+    //   this.isUploadingImg = false
+    //   this.image = image
+    // })
+  }
 }
 
 decorate(Store, {
   designAreaDimensions: observable,
-  SVGParent: observable,
+  shakerColor: observable,
+  isUploadingImg: observable,
 
   updateDimensions: action,
-  // setSVGRef: action
+  setShakerColor: action,
+  uploadImage: action
 })
 
 let store = null
