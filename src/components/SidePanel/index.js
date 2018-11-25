@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'react-emotion'
 import Header from './Header'
 import Colors from './Colors'
-import ChooseImg from './ChooseImg'
+import AddImg from './AddImg'
+import ChooseName from './ChooseName'
+import Submit from './Submit'
 
 const Panel = styled('div')`
   background: #f7f8fc;
@@ -22,7 +24,9 @@ const SidePanel = () => (
   <Panel id='SidePanel'>
     <Header />
     <Colors />
-    <ChooseImg />
+    <AddImg />
+    <ChooseName />
+    <Submit />
   </Panel>
 )
 

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
-import logo from './logo.svg';
 import './css/App.css';
-import withStore from './store/withStore'
 
-import SidePanel from './SidePanel'
-import MainPanel from './MainPanel'
+import SidePanel from './components/SidePanel'
+import MainPanel from './components/MainPanel'
 import {css} from 'react-emotion'
 
 const style = css`

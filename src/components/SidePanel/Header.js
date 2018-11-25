@@ -1,6 +1,6 @@
 import React from 'react'
 import {css} from 'react-emotion'
-import logo from '../gfuellogo.png'
+import logo from '../../images/gfuellogo.png'
 
 
 // const logoWrapper = css`

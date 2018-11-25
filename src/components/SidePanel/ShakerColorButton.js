@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'react-emotion'
-import withStore from '../store/withStore'
+import withStore from '../../store/withStore'
 import {observer} from 'mobx-react'
 
 const ColorButton = styled('button')(props => ({
@@ -11,7 +11,6 @@ const ColorButton = styled('button')(props => ({
 }))
 
 const Button = ({store, name, color}) => {
-  console.log("This is color", store);
   return (
     <ColorButton onClick={() => store.setShakerColor(color)} color={color}/>
   )

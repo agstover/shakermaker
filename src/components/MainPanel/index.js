@@ -1,6 +1,7 @@
 import React from 'react'
 import DesignBase from './DesignBase'
 import DesignArea from './DesignArea'
+import ShakerTitle from './ShakerTitle'
 import {css} from 'react-emotion'
 
 const style = css`
@@ -12,6 +13,7 @@ const style = css`
 
 const MainPanel = () => (
   <div className={style} id='MainPanel'>
+    <ShakerTitle/>
     <DesignArea>
       <DesignBase />
     </DesignArea>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
-import img from './shaker.png'
-import withStore from './store/withStore'
+import img from '../../images/shaker.png'
+import withStore from '../../store/withStore'
 import {observer} from 'mobx-react'
 
 const ShakerImage = styled('img')(({bgColor})=> ({

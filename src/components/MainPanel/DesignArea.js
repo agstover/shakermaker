@@ -1,5 +1,5 @@
 import React from 'react'
-import withStore from './store/withStore'
+import withStore from '../../store/withStore'
 import {observer} from 'mobx-react'
 import {css} from 'emotion'
 import _ from 'lodash'
@@ -33,12 +33,10 @@ class DesignArea extends React.Component {
     store.updateDimensions({height,width})
   }
   render() {
-    const {children, store} = this.props
-    const {designAreaDimensions} = store
-    const {width, height} = designAreaDimensions
+    const {children} = this.props
     return(
       <div id='DesignArea' ref={divElement => this.divElement = divElement} className={style}>
-         {React.cloneElement(children, { width, height })}
+         {React.cloneElement(children)}
       </div>
     )
   }

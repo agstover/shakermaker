@@ -1,7 +1,7 @@
 import React from 'react'
 import {css} from 'react-emotion'
 import Section from './Section'
-import Button from './Button'
+import Button from './ShakerColorButton'
 
 const colors = [
   {name: 'black',color:'000'},

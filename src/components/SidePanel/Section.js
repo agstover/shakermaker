@@ -5,6 +5,7 @@ const style = css`
   border-top: 1px solid #dfe0e6;
   border-bottom: 1px solid #dfe0e6;
   padding: 20px 20px;
+  color: black;
   h1 {
     font-size: 20px;
     color: black;

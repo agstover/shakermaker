@@ -11,6 +11,7 @@
 
 # misc
 notes.txt
+.aws/credentials
 .env
 .DS_Store
 .env.local
