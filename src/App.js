@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './css/App.css';
 
-import SidePanel from './components/SidePanel'
-import MainPanel from './components/MainPanel'
-import {css} from 'react-emotion'
+import Browse from './components/Browse'
+import Maker from './components/Maker'
+import Canvas from './components/Canvas'
 
-const style = css`
-  min-height: 100vh;
-  display: flex;
-`
+
+
 
 class App extends Component {
   constructor(props) {
     super(props)
-    // this.updateDimensions = this.updateDimensions.bind(this)
   }
-  // componentDidMount() {
-  //   const {store} = this.props
-  //   window.addEventListener("resize", _.debounce(this.updateDimensions,400))
-  // }
-  //
-  // componentWillUnmount() {
-  //   const {store} = this.props
-  //   window.removeEventListener("resize", store.updateDimensions)
-  // }
-  //
-  // updateDimensions() {
-  //   const {store} = this.props
-  //   return store.updateDimensions({width:window.innerWidth, height: window.innerHeight})
-  // }
   render() {
     return (
-      <div className={style}>
-        <SidePanel/>
-        <MainPanel />
-      </div>
-    );
+      <div>
+        <Canvas />
+        <Router>
+          <Switch>
+            <Route path='/' exact component={Maker}/>
+            <Route path='/browse' component={Browse}/>            
+          </Switch>
+        </Router>    
+      </div>    
+    )
   }
 }
 

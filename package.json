@@ -13,6 +13,7 @@
     "react-dom": "^16.5.2",
     "react-emotion": "^9.2.12",
     "react-firebase-file-uploader": "^2.4.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "svg.draggable.js": "^2.2.1",
     "svg.js": "^2.6.6",

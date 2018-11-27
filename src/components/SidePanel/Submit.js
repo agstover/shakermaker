@@ -1,7 +1,8 @@
 import React from 'react'
 import {css} from 'react-emotion'
 import ButtonStyle from '../../css/ButtonStyle'
-
+import withStore from '../../store/withStore'
+import {withRouter} from 'react-router-dom'
 
 const outerDiv = css`
     position: relative;
@@ -15,12 +16,24 @@ const innerDiv = css`
     bottom: 0;
 `
 
-const Submit = () => (
-  <div className={outerDiv}>
-    <div className={innerDiv}>
-        <button className={ButtonStyle}>SUBMIT YOUR SHAKER</button>
-    </div>
-  </div>
-)
 
-export default Submit
+const Submit = ({store, history}) => {
+    const submitShaker = () => {
+        const shaker = {
+            title: store.shakerName,
+            image: store.image.url
+        }
+        store.addShaker(shaker)
+        history.push('/browse')
+    }
+
+    return (
+        <div className={outerDiv}>
+            <div className={innerDiv}>
+                <button onClick={()=>{submitShaker()}} className={ButtonStyle}>SUBMIT YOUR SHAKER</button>
+            </div>
+        </div>        
+    )
+}
+
+export default withStore(withRouter(Submit))

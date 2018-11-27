@@ -17,6 +17,7 @@ class Store {
       url: null
     }
     this.shakerName = null
+    this.shakers = []
   }
   updateDimensions({height, width}) {
     this.designAreaDimensions = {
@@ -61,6 +62,28 @@ class Store {
   setShakerName(name) {
     this.shakerName = name
   }
+  addShaker(shaker) {
+    const canvas = this.canvasRef
+    const ctx = canvas.getContext('2d')
+    
+    this.shakers.push(shaker)
+    this.resetShaker()
+  }
+  resetShaker() {
+    this.shakerName = null
+    this.shakerColor = 'fff'
+    this.image = {
+      uploading: false,
+      progress: 0,
+      filename: null,
+      url: null
+    }
+    // Should have an Image object here so we just store a new Image() and that enforces the right defaults
+    // could make it a tempShaker instead actually, and group all properties together.
+  }
+  setCanvasRef(c) {
+    this.canvasRef = c
+  }
   get designBaseSide() {
     return this.designAreaDimensions.height * .7
   }
@@ -83,6 +106,9 @@ decorate(Store, {
   uploadError: action,
   setShakerColor: action,
   setShakerName: action,
+  addShaker: action,
+  resetShaker: action,
+  setCanvasRef: action,
 
   designBaseSide: computed
 })
